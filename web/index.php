@@ -1,6 +1,19 @@
 <?php
 
 require('../vendor/autoload.php');
+use TheIconic\Tracking\GoogleAnalytics\Analytics;
+
+$analytics = new Analytics();
+$analytics->setProtocolVersion('1')
+    ->setTrackingId('UA-145467675-1')
+    ->setClientId('2133506694.1448249699')
+    ->setUserId('123');
+
+$analytics->setEventCategory('Checkout')
+    ->setEventAction('Purchase')
+    ->sendEvent();
+
+
 
 $app = new Silex\Application();
 $app['debug'] = true;
